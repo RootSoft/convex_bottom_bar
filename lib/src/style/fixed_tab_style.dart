@@ -42,6 +42,7 @@ class FixedTabStyle extends InnerBuilder {
 
     if (index == convexIndex) {
       var item = items[convexIndex];
+      print(item);
       return Container(
         padding: EdgeInsets.only(bottom: 2),
         child: Column(

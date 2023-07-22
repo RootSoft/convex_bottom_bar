@@ -40,4 +40,7 @@ class InternalStyle extends StyleHook {
   TextStyle textStyle(Color color, String? fontFamily) {
     return TextStyle(color: color, fontFamily: fontFamily);
   }
+
+  @override
+  double get padding => 0.0;
 }

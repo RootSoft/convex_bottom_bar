@@ -70,6 +70,9 @@ abstract class StyleHook {
   /// size of convex icon
   double get activeIconSize;
 
+  /// size of convex icon
+  double get padding;
+
   /// style for text label.
   ///
   /// Warning:

@@ -47,24 +47,30 @@ class ReactCircleTabStyle extends InnerBuilder {
     if (active) {
       final item = items[index];
       return TransitionContainer.scale(
-        data: index,
-        curve: curve,
-        child: Container(
-          // necessary otherwise the badge will not large enough
-          width: style.layoutSize,
-          height: style.layoutSize,
-          margin: EdgeInsets.all(margin),
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: active ? activeColor : color,
-          ),
-          child: BlendImageIcon(
-            active ? item.activeIcon ?? item.icon : item.icon,
-            size: style.activeIconSize,
-            color: item.blend ? backgroundColor : null,
-          ),
-        ),
-      );
+          data: index,
+          curve: curve,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              SizedBox(height: style.padding),
+              Container(
+                // necessary otherwise the badge will not large enough
+                width: style.layoutSize,
+                height: style.layoutSize,
+                margin: EdgeInsets.all(margin),
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: active ? activeColor : color,
+                ),
+                child: BlendImageIcon(
+                  active ? item.activeIcon ?? item.icon : item.icon,
+                  size: style.activeIconSize,
+                  color: item.blend ? backgroundColor : null,
+                ),
+              ),
+            ],
+          ));
     }
     var textStyle = style.textStyle(color, item.fontFamily);
     var noLabel = style.hideEmptyLabel && hasNoText(item);
@@ -75,9 +81,11 @@ class ReactCircleTabStyle extends InnerBuilder {
         color: item.blend ? color : null,
       ),
     ];
+    children.add(SizedBox(height: style.padding));
     if (!noLabel) {
       children.add(Text(item.title ?? '', style: textStyle));
     }
+    children.add(SizedBox(height: style.padding));
     return Container(
       padding: EdgeInsets.only(bottom: 2),
       child: Column(

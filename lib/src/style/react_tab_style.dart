@@ -69,6 +69,7 @@ class ReactTabStyle extends InnerBuilder {
       BlendImageIcon(item.icon,
           color: item.blend ? color : null, size: style.iconSize),
     ];
+    children.add(SizedBox(height: style.padding));
     if (!noLabel) {
       children.add(Text(item.title ?? '',
           style: style.textStyle(color, item.fontFamily)));
