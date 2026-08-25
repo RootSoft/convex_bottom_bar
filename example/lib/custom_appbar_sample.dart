@@ -26,8 +26,7 @@ class CustomAppBarDemo extends StatefulWidget {
   }
 }
 
-class _State extends State<CustomAppBarDemo>
-    with SingleTickerProviderStateMixin {
+class _State extends State<CustomAppBarDemo> with SingleTickerProviderStateMixin {
   List<TabItem> items = <TabItem>[
     TabItem(icon: Icons.home, title: 'Home'),
     TabItem(icon: Icons.map, title: 'Discovery'),
@@ -127,8 +126,7 @@ class _State extends State<CustomAppBarDemo>
           mainAxisAlignment: MainAxisAlignment.end,
           children: <Widget>[
             Icon(data.icon, color: color),
-            Text(data.title != null ? data.title! : "",
-                style: TextStyle(color: color))
+            Text(data.title != null ? data.title! : "", style: TextStyle(color: color))
           ],
         ));
   }
@@ -179,19 +177,14 @@ class _CustomBuilder extends DelegateBuilder {
         ),
       );
     }
-    var _icon = active
-        ? navigationItem.activeIcon ?? navigationItem.icon
-        : navigationItem.icon;
+    var _icon = active ? navigationItem.activeIcon ?? navigationItem.icon : navigationItem.icon;
     var _title = navigationItem.title ?? "";
     return Container(
       color: Colors.transparent,
       padding: EdgeInsets.only(bottom: 2),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
-        children: <Widget>[
-          Icon(_icon, color: _color),
-          Text(_title, style: TextStyle(color: _color))
-        ],
+        children: <Widget>[Icon(_icon, color: _color), Text(_title, style: TextStyle(color: _color))],
       ),
     );
   }
@@ -211,6 +204,9 @@ class Style extends StyleHook {
 
   @override
   double get iconSize => 20;
+
+  @override
+  double get padding => 0;
 
   @override
   TextStyle textStyle(Color color, String? fontFamily) {

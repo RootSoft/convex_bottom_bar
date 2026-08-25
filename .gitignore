@@ -76,3 +76,6 @@ pubspec.lock
 # Pana report
 pana_visual/
 coverage/
+
+# FVM Version Cache
+.fvm/
